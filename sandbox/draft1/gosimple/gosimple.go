@@ -1,13 +1,8 @@
 package gosimple
 
-import "github.com/fengdotdev/golibs-traits/trait/query"
+//var _ types.SimpleDB[map[string]any] = (*GoSimple)(nil)
 
-var _ query.QueryableWithCTX = (*Queryable)(nil)
-
-type GoSimple struct {
-	data map[string]any
-}
-
-func NewSimpleDB(data map[string]any) *GoSimple {
-	return &GoSimple{data: data}
+type GoSimple[T any] struct {
+	index map[string]string
+	data  map[string]T
 }
